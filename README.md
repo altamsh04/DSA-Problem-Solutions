@@ -1,6 +1,7 @@
 # DSA 🚀
 My solutions to problems of leetcode, interviewbit, geeksforgeeks, etc.
-It also includes data structure and algorithms
+It also includes data structure and algorithms like
+
 * Array
 * String
 * Stack
