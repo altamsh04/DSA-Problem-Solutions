@@ -1,3 +1,4 @@
+// Approch 1
 class Solution {
 public:
     void reverseString(vector<char>& s) {
@@ -9,5 +10,13 @@ public:
             low++;
             high--;
         }
+    }
+};
+
+// Approch 2
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        reverse(s.begin(), s.end());
     }
 };
