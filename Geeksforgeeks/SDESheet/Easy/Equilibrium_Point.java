@@ -19,7 +19,6 @@ class Solution {
             
             leftSum += arr[i];
         }
-        
         return -1;
     }
 }
