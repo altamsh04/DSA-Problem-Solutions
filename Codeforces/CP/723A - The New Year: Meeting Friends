@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    int x1, x2, x3;
+    cin >> x1 >> x2 >> x3;
+
+    vector<int> positions = {x1, x2, x3};
+    sort(positions.begin(), positions.end());
+
+    int median = positions[1];
+
+    int totalDistance = abs(positions[0] - median) + abs(positions[2] - median);
+
+    cout << totalDistance << endl;
+
+    return 0;
+}
