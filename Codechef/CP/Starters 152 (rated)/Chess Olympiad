@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+    int X, Y, Z;
+    cin >> X >> Y >> Z;
+
+    float team_points = X + 0.5 * Y;
+    float opponent_points = Z + 0.5 * Y;
+    
+    int games = 4 - (X + Y + Z) + team_points;
+
+    if (games > opponent_points) {
+        cout << "YES" << endl;
+    }
+    else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
