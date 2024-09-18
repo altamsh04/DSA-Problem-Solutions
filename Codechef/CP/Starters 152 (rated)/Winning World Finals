@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int TC;
+    cin >> TC;
+    
+    while (TC--) {
+        int M, P;
+        cin >> M >> P;
+        
+        int ans = 0;
+        int T = M;
+        while (T < 299 && (T + 1 + P + 20) <= 1000) {
+            ans++;
+            T++;
+            P += 20;
+        }
+
+        cout << ans << '\n';
+    }
+    
+    return 0;
+}
