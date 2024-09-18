@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int N, M;
+        cin >> N >> M;
+        
+        string s[M];
+        for (int i = 0; i < M; i++) {
+            cin >> s[i];
+        }
+        
+        long long total_distance = 0;
+        
+        for (int j = 0; j < N; j++) {
+            int zeros = 0, ones = 0, questions = 0;
+            for (int i = 0; i < M; i++) {
+                char c = s[i][j];
+
+                if (c == '0') zeros++;
+                else if (c == '1') ones++;
+                else questions++;
+            }
+            
+            int max_diff = max(zeros, ones);
+            int min_diff = min(zeros, ones);
+            
+            if (min_diff + questions <= max_diff) {
+                min_diff += questions;
+            }
+            else {
+                questions -= max_diff - min_diff;
+                min_diff = max_diff;
+                max_diff += questions / 2;
+                min_diff += (questions + 1) / 2;
+            }
+            total_distance += (long long) min_diff * max_diff;
+        }
+        
+        cout << total_distance << '\n';
+    }
+    
+    return 0;
+}
