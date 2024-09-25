@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        int x, y, z;
+        cin >> x >> y >> z;
+
+        if (y - x == z - y)
+        {
+            cout << "0\n";
+            continue;
+        }
+
+        int d1 = (z - x) / 2;
+        int d2 = y - x;
+        int d3 = z - y;
+
+        int ops1 = (y != x + d1) + (z != x + 2 * d1);
+        int ops2 = (x != y - d2) + (z != y + d2);
+        int ops3 = (x != z - 2 * d3) + (y != z - d3);
+
+        cout << min({ops1, ops2, ops3}) << "\n";
+    }
+
+    return 0;
+}
