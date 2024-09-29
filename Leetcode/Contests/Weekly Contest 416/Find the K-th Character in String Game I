@@ -1,0 +1,18 @@
+class Solution {
+public:
+    char kthCharacter(int k) {
+        string word = "a";
+        int length = 1;
+        
+        while (length < k) {
+            string generated = "";
+            for (char c : word) {
+                generated += (c == 'z') ? 'a' : (char)(c + 1);
+            }
+            word += generated;
+            length = word.length();
+        }
+        
+        return word[k - 1];
+    }
+};
