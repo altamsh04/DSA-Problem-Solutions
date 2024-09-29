@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int countOfSubstrings(string word, int k) {
+        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+        int n = word.size();
+        int count = 0;
+        
+        for (int i=0; i<n; i++) {
+            unordered_set<char> foundVowels;
+            int consonantCount = 0;
+            for (int j=i; j<n; j++)  {
+                char c = word[j];
+                if (vowels.count(c)) {
+                    foundVowels.insert(c);
+                }
+                else {
+                    consonantCount++;
+                }
+                
+                if (foundVowels.size() == 5 && consonantCount == k) {
+                    count++;
+                }
+                
+                if (consonantCount > k) {
+                    break;
+                }
+            }
+        }
+        
+        return count;
+    }
+};
