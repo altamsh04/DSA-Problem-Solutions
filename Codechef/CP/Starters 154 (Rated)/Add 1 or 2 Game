@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+int main() {
+    fastio;
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int N;
+        cin >> N;
+        
+        if (N == 1) {
+            cout << "ALICE" << endl;
+        } else {
+            cout << "BOB" << endl;
+        }
+    }
+    
+    return 0;
+}
