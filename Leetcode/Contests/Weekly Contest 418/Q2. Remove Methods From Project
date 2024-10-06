@@ -1,0 +1,52 @@
+class Solution {
+public:
+    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) {
+        vector<vector<int>> graph(n), reverseGraph(n);
+        vector<int> inDegree(n, 0);
+        
+        for (const auto& invocation : invocations) {
+            int a = invocation[0];
+            int b = invocation[1];
+            graph[a].push_back(b);
+            reverseGraph[b].push_back(a);
+            inDegree[b]++;
+        }
+        
+        vector<bool> suspicious(n, false);
+        queue<int> q;
+        q.push(k);
+        suspicious[k] = true;
+        
+        while (!q.empty()) {
+            int method = q.front();
+            q.pop();
+            for (int nextMethod : graph[method]) {
+                if (!suspicious[nextMethod]) {
+                    suspicious[nextMethod] = true;
+                    q.push(nextMethod);
+                }
+            }
+        }
+        
+        for (int i = 0; i < n; ++i) {
+            if (!suspicious[i]) {
+                for (int nextMethod : graph[i]) {
+                    if (suspicious[nextMethod]) {
+                        vector<int> result(n);
+                        iota(result.begin(), result.end(), 0); 
+                        return result;
+                    }
+                }
+            }
+        }
+        
+        vector<int> result;
+        for (int i = 0; i < n; ++i) {
+            if (!suspicious[i]) {
+                result.push_back(i);
+            }
+        }
+        
+        return result;
+    }
+};
