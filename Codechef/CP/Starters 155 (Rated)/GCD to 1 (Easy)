@@ -1,0 +1,27 @@
+def gcd_matrix(test_cases):
+  results = []
+  for n, m in test_cases:
+    matrix = []
+    for i in range(n):
+      row = []
+      for j in range(m):
+        row.append((i + 1) * (j + 1) + 1)
+      matrix.append(row)
+    results.append(matrix)
+  return results
+
+def print_matrix(results):
+  for matrix in results:
+    for row in matrix:
+      print(" ".join(map(str, row)))
+
+# Input reading
+T = int(input())
+
+test_cases = []
+for _ in range(T):
+  n, m = map(int, input().split())
+  test_cases.append((n, m))
+
+matrices = gcd_matrix(test_cases)
+print_matrix(matrices)
