@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+
+        int SushilWealth = A[N - 1];
+        int finalPosition = N;  
+        
+        for (int i = N - 2; i >= 0; --i) {
+            if (A[i] <= SushilWealth / 2) {
+                finalPosition--;
+            } else {
+                break;
+            }
+        }
+
+        cout << finalPosition << endl;
+    }
+
+    return 0;
+}
