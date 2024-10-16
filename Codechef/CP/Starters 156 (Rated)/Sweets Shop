@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+int main() {
+    fastio;
+    int X, N;
+    cin >> X >> N;
+    int remainingMoney = X - (N * 10);
+    cout << remainingMoney / 20 << endl;
+    return 0;
+}
