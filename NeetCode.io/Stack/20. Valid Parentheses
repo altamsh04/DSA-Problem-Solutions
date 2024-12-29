@@ -1,0 +1,21 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) == 0:
+            return True
+            
+        cMap = {
+            "(": ")",
+            "{": "}",
+            "[": "]"
+        }
+
+        stack = []
+
+        for x in s:
+            if x in cMap:
+                stack.append(x)
+            else:
+                if not stack or cMap[stack.pop()] != x:
+                    return False
+
+        return not stack
