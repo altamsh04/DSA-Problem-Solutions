@@ -1,0 +1,25 @@
+class Solution:
+    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+        def checkStr(word: str) -> bool:
+            vowels = {'a', 'e', 'i', 'o', 'u'}
+            return word[0] in vowels and word[-1] in vowels
+
+        res = []
+        prefix_str = []
+        prefix_str.append(0)
+
+        for s in words:
+            if checkStr(s):
+                prefix_str.append(prefix_str[-1] + 1)
+            else:
+                prefix_str.append(prefix_str[-1] + 0)
+
+        for i in range(len(queries)):
+            start, end = queries[i]
+            val = prefix_str[end+1] - prefix_str[start]
+            if val > 0:
+                res.append(val)
+            else:
+                res.append(0)
+
+        return res
