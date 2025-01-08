@@ -1,0 +1,19 @@
+class Solution:
+    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+        def isPrefixAndSuffix(s1, s2):
+            if len(s1) > len(s2):
+                return False
+            
+            is_prefix = s2[:len(s1)] == s1
+            is_suffix = s2[-len(s1):] == s1
+
+            return is_prefix and is_suffix
+        
+        count = 0
+
+        for i in range(len(words)):
+            for j in range(i + 1, len(words)):
+                if isPrefixAndSuffix(words[i], words[j]):
+                    count += 1
+
+        return count
