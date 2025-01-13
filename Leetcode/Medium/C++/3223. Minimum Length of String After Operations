@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int minimumLength(string s) {
+        unordered_map<char, int> uMap;
+        for (auto ch : s) {
+            uMap[ch]++;
+        }
+
+        int ans = 0;
+
+        for (auto p : uMap) {
+            int count = p.second;
+            if (count > 0)
+                ans += count % 2 == 0 ? 2 : 1;
+        }
+
+        return ans;
+    }
+};
