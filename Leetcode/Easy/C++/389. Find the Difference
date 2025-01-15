@@ -1,0 +1,23 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        unordered_map<char, int> uMap;
+
+        for (auto ch : t) {
+            uMap[ch]++;
+        }
+        
+        for (char ch : s) {
+            uMap[ch]--;
+            if (uMap[ch] == 0) {
+                uMap.erase(ch);
+            }
+        }
+
+        for (auto p : uMap) {
+            if (p.second == 1) return p.first;
+        }
+
+        return NULL;
+    }
+};
