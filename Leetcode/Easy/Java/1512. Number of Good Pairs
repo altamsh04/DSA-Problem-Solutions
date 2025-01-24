@@ -1,0 +1,16 @@
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int goodPairs = 0;
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        
+        for (int num : nums) {
+            if (hashMap.containsKey(num)) {
+                goodPairs += hashMap.get(num);
+            }
+
+            hashMap.put(num, hashMap.getOrDefault(num, 0) + 1);
+        }
+
+        return goodPairs;
+    }
+}
