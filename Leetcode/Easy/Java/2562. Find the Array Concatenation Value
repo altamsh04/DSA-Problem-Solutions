@@ -1,0 +1,19 @@
+class Solution {
+    public long findTheArrayConcVal(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+        long ans = 0;
+
+        while (low < high) {
+            ans += Long.parseLong(nums[low] + "" + nums[high]);
+            low++;
+            high--;
+        }
+
+        if (low == high) {
+            ans += nums[low];
+        }
+
+        return ans;
+    }
+}
